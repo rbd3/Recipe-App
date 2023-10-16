@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -23,23 +24,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+      @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render :edit
-    end
   end
 
   def destroy
-    @user.destroy
+    @user.find(params[:id]).destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def user_params
     params.require(:user).permit(:name)
