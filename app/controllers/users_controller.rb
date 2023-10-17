@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.all
   end
@@ -24,8 +23,8 @@ class UsersController < ApplicationController
   end
 
   def update
-      @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+    @user.update(user_params)
+    redirect_to @user, notice: 'User was successfully updated.'
   end
 
   def destroy
