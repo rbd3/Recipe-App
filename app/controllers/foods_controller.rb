@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @user = Food.new
+    @food = Food.new
   end
 
   def create
