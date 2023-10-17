@@ -14,7 +14,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def create
-    @recipe_food = Recipe.new(recipeFood_params)
+    @recipe_food = Recipe.new(recipe_food_params)
     if @recipe_food.save
       redirect_to @recipe_food, notice: 'Recipe food was successfully created.'
     else
@@ -23,7 +23,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def update
-    @recipe_food.update(recipeFood_params)
+    @recipe_food.update(recipe_food_params)
     redirect_to @recipe_food, notice: 'Recipe food was successfully updated.'
   end
 
@@ -34,7 +34,7 @@ class RecipeFoodsController < ApplicationController
 
   private
 
-  def recipeFood_params
+  def recipe_food_params
     params.require(:recipe_food).permit(:quantity)
   end
 end
