@@ -1,0 +1,7 @@
+<div class="user-container">
+<div class="user-wrapper">
+    <% @users.each do |user| %>
+  <span class="user-name"><%= link_to user.name, user_path(user) %></span>
+  <% end %>
+</div>
+</div>

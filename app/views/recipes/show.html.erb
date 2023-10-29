@@ -1,0 +1,61 @@
+<div class="recipeshow-controller">
+<div class="recipe-details">
+
+<span class="recipedetails-name">
+<%= @recipe.name%>
+</span>
+<span class="prep">
+    Preparation time:
+<%= @recipe.preparation_time%> hour
+</span>
+<span class="cooking">Cooking time:
+<%= @recipe.cooking_time%> hours
+</span>
+<span class="step">
+Step go here
+</span>
+
+</div>
+
+<div class="bollean-wrapper">
+<span class="public">
+<%= @recipe.public %>
+</span>
+</div>
+
+<div class="button-wrapper">
+<span class="shopping-button">
+    <%= button_to "Generate shopping list"%>
+</span>
+<span class="ingrediant-button">
+    <%= button_to "Add ingrediant"%>
+</span>
+<hr>
+</div>
+</div>
+
+<div class="food-container">
+  <button class="add-food">Add Food</button>
+  <table class="food-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td>
+            <%= link_to "Delete", food_path(food), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

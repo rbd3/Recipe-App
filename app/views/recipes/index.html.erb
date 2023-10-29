@@ -1,0 +1,17 @@
+<div class="recipe-controller">
+<div class="recipe-wrapper">
+    <% @recipes.each do |recipe|%>
+    <div class="recipe-item">
+<span class="recipe-title">
+    <%= link_to recipe.name, recipe_path(recipe) %>
+</span>
+<span class="remove-recipe">
+    <%= link_to "REMOVE", recipe_path(recipe), method: :delete %>
+</span>
+<span class="recipe-description">
+    <%= recipe.description %>
+</span>
+</div>
+<% end%>
+</div>
+</div>
