@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
-    @user = User.find(params[:user_id])
+   # @user = User.find(params[:user_id])
   end
 
   def new
@@ -22,12 +22,13 @@ class FoodsController < ApplicationController
   end
 
   def update
-    @food.update(food_params)
+    Food.update(food_params)
     redirect_to @food, notice: 'Food was successfully updated.'
   end
 
   def destroy
-    @food.find(params[:id]).destroy
+    @food = Food.find(params[:id])
+    @food.destroy
     redirect_to foods_url, notice: 'Food was successfully destroyed.'
   end
 
